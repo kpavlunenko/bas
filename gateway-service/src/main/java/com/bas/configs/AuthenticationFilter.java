@@ -2,7 +2,6 @@ package com.bas.configs;
 
 import com.bas.services.JwtUtil;
 import io.jsonwebtoken.Claims;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -17,10 +16,13 @@ import reactor.core.publisher.Mono;
 @RefreshScope
 public class AuthenticationFilter implements GatewayFilter {
 
-	@Autowired
-	private RouterValidator routerValidator;
-	@Autowired
-	private JwtUtil jwtUtil;
+	private final RouterValidator routerValidator;
+	private final JwtUtil jwtUtil;
+
+	public AuthenticationFilter(RouterValidator routerValidator, JwtUtil jwtUtil) {
+		this.routerValidator = routerValidator;
+		this.jwtUtil = jwtUtil;
+	}
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
