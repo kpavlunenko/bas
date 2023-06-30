@@ -14,9 +14,9 @@ public class UserController {
 	private final UserService userService;
 
 	@PostMapping
-	public User save(@RequestBody User user) {
+	public ResponseEntity<User> save(@RequestBody User user) {
 		user.setRole("general");
-		return userService.save(user);
+		return ResponseEntity.ok(userService.save(user));
 	}
 
 	@GetMapping("/secured")
