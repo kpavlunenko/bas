@@ -21,7 +21,7 @@ public class JwtUtil {
 		return Jwts.parserBuilder()
 				.setSigningKey(Keys.hmacShaKeyFor(secret.getBytes()))
 				.build()
-				.parseClaimsJwt(token)
+				.parseClaimsJws(token)
 				.getBody();
 	}
 
@@ -35,13 +35,13 @@ public class JwtUtil {
 				? Long.parseLong(expiration) * 1000
 				: Long.parseLong(expiration) * 1000 * 5;
 
-		Date now = new Date();
-		Date exp = new Date(now.getTime() * expMillis);
+		final Date createdDate = new Date();
+		final Date expirationDate = new Date(createdDate.getTime() + expMillis);
 		return Jwts.builder()
 				.setClaims(claims)
 				.setSubject(claims.get("id"))
-				.setIssuedAt(now)
-				.setExpiration(exp)
+				.setIssuedAt(createdDate)
+				.setExpiration(expirationDate)
 				.signWith(Keys.hmacShaKeyFor(secret.getBytes()))
 				.compact();
 	}

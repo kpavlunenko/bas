@@ -3,10 +3,8 @@ package com.bas.controllers;
 import com.bas.models.database.User;
 import com.bas.services.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -19,6 +17,11 @@ public class UserController {
 	public User save(@RequestBody User user) {
 		user.setRole("general");
 		return userService.save(user);
+	}
+
+	@GetMapping("/secured")
+	public ResponseEntity<String> securedEndpoint() {
+		return ResponseEntity.ok("test");
 	}
 
 }
