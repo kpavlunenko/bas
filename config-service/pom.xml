@@ -9,6 +9,7 @@
 	</parent>
 
 	<artifactId>config-service</artifactId>
+	<name>config-service</name>
 
 	<properties>
 		<java.version>20</java.version>
@@ -23,6 +24,10 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 		<dependency>

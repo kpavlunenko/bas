@@ -9,6 +9,7 @@
 	</parent>
 
 	<artifactId>auth-service</artifactId>
+	<name>auth-service</name>
 
 	<properties>
 		<java.version>20</java.version>

@@ -2,5 +2,5 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:9297
+      uri: http://config-service:9297
       name: gateway-service

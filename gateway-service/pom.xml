@@ -9,6 +9,7 @@
 	</parent>
 
 	<artifactId>gateway-service</artifactId>
+	<name>gateway-service</name>
 
 	<properties>
 		<java.version>20</java.version>

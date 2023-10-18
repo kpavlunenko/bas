@@ -9,6 +9,7 @@
 	</parent>
 
 	<artifactId>discovery-service</artifactId>
+	<name>discovery-service</name>
 
 	<properties>
 		<java.version>20</java.version>
