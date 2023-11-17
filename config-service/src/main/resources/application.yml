@@ -11,7 +11,7 @@ spring:
           uri: https://github.com/kpavlunenko/bas-configs.git
           clone-on-start: true
           username: config_server
-          password: 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
+          password: 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
 
 eureka:
   client:
